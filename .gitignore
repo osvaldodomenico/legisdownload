@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Flutter
+frontend/shift_downloads/.dart_tool/
+frontend/shift_downloads/build/
+frontend/shift_downloads/.flutter-plugins
+frontend/shift_downloads/.flutter-plugins-dependencies
+
+# Docker
+*.log
+
+# Superpowers
+.superpowers/
+
+# Node (legado)
+node_modules/
