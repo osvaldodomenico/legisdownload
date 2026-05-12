@@ -18,7 +18,13 @@ async def lifespan(app: FastAPI):
     scheduler.shutdown()
 
 
-app = FastAPI(title="ShiftDownloads API", lifespan=lifespan)
+app = FastAPI(
+    title="ShiftDownloads API",
+    lifespan=lifespan,
+    docs_url="/api/docs",
+    openapi_url="/api/openapi.json",
+    redoc_url="/api/redoc",
+)
 
 app.add_middleware(
     CORSMiddleware,
@@ -27,5 +33,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(info.router)
-app.include_router(download.router)
+app.include_router(info.router, prefix="/api")
+app.include_router(download.router, prefix="/api")
