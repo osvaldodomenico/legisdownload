@@ -32,8 +32,17 @@ def detect_platform(url: str) -> str:
     return "unknown"
 
 
+COOKIES_FILE = "/app/cookies/cookies.txt"
+
+
+def _cookies_opts() -> Dict:
+    if os.path.isfile(COOKIES_FILE):
+        return {"cookiefile": COOKIES_FILE}
+    return {}
+
+
 def get_info(url: str) -> Dict[str, Any]:
-    ydl_opts = {"quiet": True, "no_warnings": True, "skip_download": True}
+    ydl_opts = {"quiet": True, "no_warnings": True, "skip_download": True, **_cookies_opts()}
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=False)
 
@@ -91,6 +100,7 @@ def start_download(job_id: str, url: str, format_id: str,
         "no_warnings": True,
         "progress_hooks": [progress_hook],
         "merge_output_format": "mp4" if "mp4" in fmt["ext"] else None,
+        **_cookies_opts(),
     }
 
     if format_id == "mp3":
