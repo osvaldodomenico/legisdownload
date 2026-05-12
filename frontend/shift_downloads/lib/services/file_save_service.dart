@@ -12,10 +12,7 @@ class FileSaveService {
   /// - Desktop: downloads and saves to Downloads folder
   static Future<void> save(String fileUrl, String filename) async {
     if (kIsWeb) {
-      final uri = Uri.parse(fileUrl);
-      if (await canLaunchUrl(uri)) {
-        await launchUrl(uri, mode: LaunchMode.externalApplication);
-      }
+      await launchUrl(Uri.parse(fileUrl), mode: LaunchMode.platformDefault);
       return;
     }
 

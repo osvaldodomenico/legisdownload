@@ -26,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen>
   String? _selectedFormat;
   bool _noWatermark = false;
   bool _startingDownload = false;
+  String? _currentUrl;
   List<HistoryEntry> _history = [];
 
   @override
@@ -52,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Future<void> _fetchInfo(String url) async {
+    _currentUrl = url;
     setState(() {
       _loadingInfo = true;
       _infoError = null;
@@ -80,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen>
     setState(() => _startingDownload = true);
     try {
       final jobId =
-          await ApiService.startDownload(info.title, format, noWatermark: _noWatermark);
+          await ApiService.startDownload(_currentUrl!, format, noWatermark: _noWatermark);
       final formatLabel = info.formats
           .firstWhere((f) => f.id == format,
               orElse: () => info.formats.first)
