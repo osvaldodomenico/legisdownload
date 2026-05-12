@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from services.job_store import job_store
-from routers import info, download
+from routers import info, download, admin
 
 
 scheduler = AsyncIOScheduler()
@@ -35,3 +35,4 @@ app.add_middleware(
 
 app.include_router(info.router, prefix="/api")
 app.include_router(download.router, prefix="/api")
+app.include_router(admin.router, prefix="/api")
