@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../theme/mech_theme.dart';
 import 'mech_button.dart';
 
@@ -26,6 +27,15 @@ class _UrlInputState extends State<UrlInput> {
   void _submit() {
     final url = _controller.text.trim();
     if (url.isNotEmpty) widget.onSubmit(url);
+  }
+
+  Future<void> _paste() async {
+    final data = await Clipboard.getData(Clipboard.kTextPlain);
+    final text = data?.text?.trim() ?? '';
+    if (text.isNotEmpty) {
+      _controller.text = text;
+      _controller.selection = TextSelection.collapsed(offset: text.length);
+    }
   }
 
   @override
@@ -58,7 +68,24 @@ class _UrlInputState extends State<UrlInput> {
                 const SizedBox(
                   width: 20,
                   height: 20,
-                  child: CircularProgressIndicator(strokeWidth: 2, color: MechColors.accentCyan)),
+                  child: CircularProgressIndicator(strokeWidth: 2, color: MechColors.accentCyan))
+              else
+                GestureDetector(
+                  onTap: _paste,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: MechColors.accentCyanDim),
+                      color: MechColors.background,
+                    ),
+                    child: const Text('COLAR',
+                        style: TextStyle(
+                            color: MechColors.accentCyan,
+                            fontSize: 10,
+                            letterSpacing: 1.5,
+                            fontWeight: FontWeight.w700)),
+                  ),
+                ),
             ],
           ),
         ),
