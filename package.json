@@ -1,0 +1,21 @@
+{
+  "name": "shiftdownloads",
+  "version": "1.0.0",
+  "description": "Downloader web responsivo para YouTube, Instagram e TikTok com opcao de video, MP3 e compartilhamento.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "check": "node --check server.js"
+  },
+  "keywords": [
+    "downloader",
+    "youtube",
+    "instagram",
+    "tiktok",
+    "mp3",
+    "telegram",
+    "whatsapp"
+  ],
+  "license": "MIT"
+}

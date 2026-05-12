@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ShiftDownloads</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="workspace">
+      <section class="panel panel-download">
+        <div class="panel-head">
+          <div>
+            <p class="section-tag">Downloader</p>
+            <h1>Preparar arquivo</h1>
+          </div>
+          <div id="tool-status" class="status-badge" aria-live="polite"></div>
+        </div>
+
+        <form id="download-form" class="download-form">
+          <label class="field">
+            <span>Link da midia</span>
+            <div class="input-frame">
+              <input
+                id="media-url"
+                name="url"
+                type="url"
+                placeholder="https://www.youtube.com/watch?v=..."
+                required
+              >
+            </div>
+          </label>
+
+          <div class="mode-grid">
+            <label class="mode-card active">
+              <input type="radio" name="mode" value="video" checked>
+              <span class="mode-icon">HD</span>
+              <strong>Video</strong>
+              <small>Baixe com a resolucao disponivel</small>
+            </label>
+
+            <label class="mode-card">
+              <input type="radio" name="mode" value="audio">
+              <span class="mode-icon">MP3</span>
+              <strong>Somente audio</strong>
+              <small>Ideal para musica, aula e podcast</small>
+            </label>
+          </div>
+
+          <label id="video-quality-field" class="field">
+            <span>Qualidade do video</span>
+            <select id="video-quality" name="videoQuality"></select>
+          </label>
+
+          <label id="audio-quality-field" class="field hidden">
+            <span>Qualidade do MP3</span>
+            <select id="audio-quality" name="audioQuality">
+              <option value="best">Alta - melhor qualidade</option>
+              <option value="balanced">Media - equilibrio entre tamanho e qualidade</option>
+              <option value="compact">Leve - arquivo menor</option>
+            </select>
+          </label>
+
+          <div class="actions">
+            <button id="analyze-button" type="button" class="btn btn-secondary">Analisar midia</button>
+            <button id="download-button" type="submit" class="btn btn-primary">Baixar agora</button>
+          </div>
+        </form>
+      </section>
+
+      <div class="side-stack">
+        <section class="panel">
+          <div class="panel-head panel-head-compact">
+            <div>
+              <p class="section-tag">Preview</p>
+              <h2>Midia detectada</h2>
+            </div>
+          </div>
+
+          <div id="preview-empty" class="empty-state">
+            <div class="empty-icon">+</div>
+            <p>Analise um link para exibir thumbnail, origem e as qualidades disponiveis.</p>
+          </div>
+
+          <article id="preview-content" class="preview hidden">
+            <div class="preview-media">
+              <img id="preview-thumb" alt="Thumbnail da midia">
+              <div class="preview-overlay">
+                <p id="preview-platform" class="preview-chip"></p>
+              </div>
+            </div>
+            <div class="preview-copy">
+              <h3 id="preview-title"></h3>
+              <div class="meta-list">
+                <p id="preview-uploader" class="meta-item"></p>
+                <p id="preview-duration" class="meta-item"></p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head panel-head-compact">
+            <div>
+              <p class="section-tag">Entrega</p>
+              <h2>Baixar e compartilhar</h2>
+            </div>
+          </div>
+
+          <div id="result-empty" class="empty-state empty-state-short">
+            <div class="empty-icon">↗</div>
+            <p>Quando o download terminar, o arquivo aparece aqui com os atalhos de envio.</p>
+          </div>
+
+          <div id="result-content" class="result hidden">
+            <div class="result-card">
+              <p class="result-label">Arquivo pronto</p>
+              <p id="result-name" class="result-name"></p>
+            </div>
+
+            <a id="result-link" class="btn btn-primary" href="#" download>Baixar arquivo</a>
+
+            <div class="share-actions">
+              <button id="copy-link-button" type="button" class="btn btn-secondary">Copiar link</button>
+              <button id="web-share-button" type="button" class="btn btn-secondary">Compartilhar</button>
+              <a id="whatsapp-share" class="btn btn-secondary" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+              <a id="telegram-share" class="btn btn-secondary" href="#" target="_blank" rel="noreferrer">Telegram</a>
+            </div>
+
+            <button id="telegram-upload-button" type="button" class="btn btn-ghost hidden">
+              Enviar arquivo via bot do Telegram
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div id="toast" class="toast hidden" aria-live="polite"></div>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
