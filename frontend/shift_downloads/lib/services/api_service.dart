@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 const String _baseUrl = String.fromEnvironment('API_BASE_URL',
-    defaultValue: 'http://localhost:8000');
+    defaultValue: 'https://legisdownload-api.shiftworks.app.br/api');
 
 class VideoInfo {
   final String title;
