@@ -1,4 +1,5 @@
 import os
+import urllib.parse
 import shutil
 import aiofiles
 from fastapi import APIRouter, HTTPException, BackgroundTasks
@@ -97,7 +98,7 @@ async def download_file(job_id: str):
         file_stream(),
         media_type=content_type,
         headers={
-            "Content-Disposition": f'attachment; filename="{filename}"',
+            "Content-Disposition": f"attachment; filename*=UTF-8''{urllib.parse.quote(filename)}",
             "Content-Length": str(os.path.getsize(file_path)),
         },
     )
