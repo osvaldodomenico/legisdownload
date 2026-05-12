@@ -7,6 +7,7 @@ __pycache__/
 # Flutter
 frontend/shift_downloads/.dart_tool/
 frontend/shift_downloads/build/
+!frontend/shift_downloads/build/web/
 frontend/shift_downloads/.flutter-plugins
 frontend/shift_downloads/.flutter-plugins-dependencies
 
