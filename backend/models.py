@@ -16,7 +16,7 @@ class FormatInfo(BaseModel):
 class InfoResponse(BaseModel):
     title: str
     thumbnail: Optional[str]
-    duration: Optional[int]
+    duration: Optional[float]
     platform: str
     formats: List[FormatInfo]
     no_watermark: bool = False

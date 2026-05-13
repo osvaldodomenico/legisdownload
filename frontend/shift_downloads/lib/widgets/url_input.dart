@@ -30,11 +30,27 @@ class _UrlInputState extends State<UrlInput> {
   }
 
   Future<void> _paste() async {
-    final data = await Clipboard.getData(Clipboard.kTextPlain);
-    final text = data?.text?.trim() ?? '';
-    if (text.isNotEmpty) {
-      _controller.text = text;
-      _controller.selection = TextSelection.collapsed(offset: text.length);
+    try {
+      final data = await Clipboard.getData(Clipboard.kTextPlain);
+      final text = data?.text?.trim() ?? '';
+      if (text.isNotEmpty) {
+        setState(() {
+          _controller.text = text;
+          _controller.selection = TextSelection.collapsed(offset: text.length);
+        });
+      } else {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Área de transferência vazia'), duration: Duration(seconds: 2)),
+          );
+        }
+      }
+    } catch (_) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Cole a URL manualmente no campo'), duration: Duration(seconds: 3)),
+        );
+      }
     }
   }
 
