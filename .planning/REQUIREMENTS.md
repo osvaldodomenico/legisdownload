@@ -132,18 +132,59 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUTH-01..04 | Phase 1 | Pending |
-| VPS-01..05 | Phase 1 | Pending |
-| INFRA-01..03 | Phase 1 | Pending |
-| JOB-04..05 | Phase 2 | Pending |
-| JOB-01..03, 06..08 | Phase 2 | Pending |
-| DB-01..03 | Phase 2 | Pending |
-| DOCK-01..03 | Phase 2 | Pending |
-| AGENT-01..06 | Phase 3 | Pending |
-| INT-01..07 | Phase 3 | Pending |
-| STR-01..04 | Phase 4 | Pending |
-| UI-01..06 | Phase 5 | Pending |
-| NOTF-01..04 | Phase 6 | Pending |
+| AUTH-01 | Phase 1 | Pending |
+| AUTH-02 | Phase 1 | Pending |
+| AUTH-03 | Phase 1 | Pending |
+| AUTH-04 | Phase 1 | Pending |
+| VPS-01 | Phase 1 | Pending |
+| VPS-02 | Phase 1 | Pending |
+| VPS-03 | Phase 1 | Pending |
+| VPS-04 | Phase 1 | Pending |
+| VPS-05 | Phase 1 | Pending |
+| INFRA-01 | Phase 1 | Pending |
+| INFRA-02 | Phase 1 | Pending |
+| INFRA-03 | Phase 1 | Pending |
+| AGENT-01 | Phase 2 | Pending |
+| AGENT-02 | Phase 2 | Pending |
+| AGENT-03 | Phase 2 | Pending |
+| AGENT-04 | Phase 2 | Pending |
+| AGENT-05 | Phase 2 | Pending |
+| AGENT-06 | Phase 2 | Pending |
+| JOB-01 | Phase 2 | Pending |
+| JOB-02 | Phase 2 | Pending |
+| JOB-03 | Phase 2 | Pending |
+| JOB-04 | Phase 2 | Pending |
+| JOB-05 | Phase 2 | Pending |
+| JOB-06 | Phase 2 | Pending |
+| JOB-07 | Phase 2 | Pending |
+| JOB-08 | Phase 2 | Pending |
+| DB-01 | Phase 2 | Pending |
+| DB-02 | Phase 2 | Pending |
+| DB-03 | Phase 2 | Pending |
+| DOCK-01 | Phase 2 | Pending |
+| DOCK-02 | Phase 2 | Pending |
+| DOCK-03 | Phase 2 | Pending |
+| INT-01 | Phase 3 | Pending |
+| INT-02 | Phase 3 | Pending |
+| INT-03 | Phase 3 | Pending |
+| INT-04 | Phase 3 | Pending |
+| INT-05 | Phase 3 | Pending |
+| INT-06 | Phase 3 | Pending |
+| INT-07 | Phase 3 | Pending |
+| STR-01 | Phase 4 | Pending |
+| STR-02 | Phase 4 | Pending |
+| STR-03 | Phase 4 | Pending |
+| STR-04 | Phase 4 | Pending |
+| UI-01 | Phase 5 | Pending |
+| UI-02 | Phase 5 | Pending |
+| UI-03 | Phase 5 | Pending |
+| UI-04 | Phase 5 | Pending |
+| UI-05 | Phase 5 | Pending |
+| UI-06 | Phase 5 | Pending |
+| NOTF-01 | Phase 6 | Pending |
+| NOTF-02 | Phase 6 | Pending |
+| NOTF-03 | Phase 6 | Pending |
+| NOTF-04 | Phase 6 | Pending |
 
 **Coverage:**
 - v1 requirements: 44 total
@@ -152,4 +193,4 @@
 
 ---
 *Requirements defined: 2026-05-18*
-*Last updated: 2026-05-18 after initial definition*
+*Last updated: 2026-05-18 — phase traceability expanded to per-requirement rows*
